@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Solution {
     public int reverse(int x) {
         long f = 0;
@@ -15,14 +17,23 @@ class Solution {
     }
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
         Solution solution = new Solution();
         
-        // Test cases
-        int[] testCases = {123, -123, 120, 0, 1534236469, -2147483648};
+        System.out.print("Enter the number of test cases: ");
+        int n = scanner.nextInt();
+        int[] testCases = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter test case " + (i + 1) + ": ");
+            testCases[i] = scanner.nextInt();
+        }
         
         for (int x : testCases) {
             int reversed = solution.reverse(x);
             System.out.println("Original: " + x + ", Reversed: " + reversed);
         }
+        
+        scanner.close();
     }
 }
